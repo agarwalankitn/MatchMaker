@@ -5,9 +5,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 const query = gql`
-{
+query fetch_Person{
   Person{
     id
+    firstName
   }
 }
 `;
@@ -18,13 +19,12 @@ const Persons = () => (
       console.log('loaded', { loading, error, data });
       if (loading) return <Text>Loading...</Text>;
       if (error) return <Text>Error :</Text>;
-
-        return null;
-      // return data.Person.map(p => (
-      //   <div key={p.id}>
-      //     <p>{`${p.id}`}</p>
-      //   </div>
-      // ));
+      return data.Person.map(p => (
+        <View key={p.id}>
+          <Text>{`${p.id}`}</Text>
+          <Text>{`${p.firstName}`}</Text>
+          </View>
+      ));
     }}
   </Query>
 );
