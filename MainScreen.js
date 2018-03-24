@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Persons from './modules/person';
+import HomeScreen from './HomeScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,10 +13,11 @@ const styles = StyleSheet.create({
 });
 
 const MainScreen = () => (
-  <View style={styles.container}>
-    <Text>Hello !!</Text>
-    <Persons />
-  </View>
+  // <View style={styles.container}>
+  //   <Text>Hello !!</Text>
+  //   <Persons />
+  // </View>
+  <HomeScreen />
 );
 
 export default MainScreen;
