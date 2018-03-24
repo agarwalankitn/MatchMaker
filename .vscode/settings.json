@@ -1,0 +1,71 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "window.zoomLevel": 0,
+    "typescript.validate.enable": false,
+    "editor.renderControlCharacters": false,
+    "atomKeymap.promptV3Features": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "editor.formatOnPaste": false,
+    "sortImports.onSave": false,
+    "search.exclude": {
+        "**/bower_components": true,
+        "**/Pods": true,
+        "**/project.pbxproj": true,
+        "**/.git": true
+    },
+    "typescript.check.npmIsInstalled": false,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        }
+    ],
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "javascript.validate.enable": false,
+    "problems.autoReveal": true,
+    "editor.rulers": [
+        100
+    ],
+    "workbench.editor.enablePreview": false,
+    "editor.useTabStops": false,
+    "editor.tabSize": 2,
+    "workbench.activityBar.visible": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "prettier.eslintIntegration": true,
+    "prettier.singleQuote": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+            "**/bower_components": true,
+            "**/Pods": true,
+            "**/project.pbxproj": true,
+            "**/.git": true
+    },
+    "flow.enabled": true,
+    "flow.runOnEdit": true,
+    "flow.useNPMPackagedFlow": true,
+    "problems.decorations.enabled": false,
+    "gitlens.keymap": "alternate",
+}
