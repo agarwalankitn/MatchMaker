@@ -16,14 +16,13 @@ query fetch_Person{
 const Persons = () => (
   <Query query={query}>
     {({ loading, error, data }) => {
-      console.log('loaded', { loading, error, data });
       if (loading) return <Text>Loading...</Text>;
       if (error) return <Text>Error :</Text>;
       return data.Person.map(p => (
         <View key={p.id}>
           <Text>{`${p.id}`}</Text>
           <Text>{`${p.firstName}`}</Text>
-          </View>
+        </View>
       ));
     }}
   </Query>
