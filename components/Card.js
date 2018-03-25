@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardItem, Text, Body, Right } from 'native-base';
 
 const CardContainer = styled.TouchableOpacity`
   padding-left: 20;
   padding-top: 20;
   padding-right: 20;
   padding-bottom: 20;
-  border-top-width: 0;
-  border-bottom-width: 1;
+  border-top-width: 1;
+  border-bottom-width: 0;
   border-color: #ccc;
   background-color: white;
   flex-direction: row;
@@ -64,6 +63,5 @@ const OpportunityCard = props => (
     </LinkContainer>
   </CardContainer>
 );
-
 
 export default OpportunityCard;
