@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Header, Content, Card, CardItem, Text, Body } from 'native-base';
+import { CardItem, Text, Body } from 'native-base';
 
+const CardContainer = styled.TouchableOpacity`
+  border-width: 1;
+  border-radius: 2;
+  border-color: #ccc;
+`;
 
 const TitleText = styled.Text`
 font-size:24;
@@ -22,7 +27,7 @@ font-weight: normal;
 `;
 
 const OpportunityCard = props => (
-  <Card>
+  <CardContainer onPress={props.onPress}>
     <CardItem header>
       <TitleText>{props.title}</TitleText>
     </CardItem>
@@ -42,7 +47,7 @@ const OpportunityCard = props => (
     <CardItem footer>
       <Text>{props.footer}</Text>
     </CardItem>
-  </Card>
+  </CardContainer>
 );
 
 
