@@ -43,14 +43,14 @@ const CircularView = styled.TouchableOpacity`
 
 const ActiveIconMap = {
   Animals: require('../icons/animals-white.png'),
-  Community: require('../icons/community-white.png'),
+  People: require('../icons/community-white.png'),
   Science: require('../icons/science-white.png'),
   Sports: require('../icons/sports-white.png'),
 };
 
 const IconMap = {
   Animals: require('../icons/animals-blue.png'),
-  Community: require('../icons/community-blue.png'),
+  People: require('../icons/community-blue.png'),
   Science: require('../icons/science-blue.png'),
   Sports: require('../icons/sports-blue.png'),
 };

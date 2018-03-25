@@ -36,16 +36,20 @@ query fetch_Category{
 `;
 
 const openingsQuery = gql`
-query fetch_Opening{
-  Opening {
+query fetch_Opening ($ids: [int], $name: String) {
+  Opening(where: {_and: [{Category: {id: {_in: $ids}}}, {city: {_like: $name}}]}) {
     id
     title
     description
+    city
     Company {
       name
+      description
     }
     Category {
+      id
       name
+      description
     }
   }
 }
@@ -60,7 +64,7 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: '',
+      searchValue: 'San Francisco',
       selectedCategories: [],
     };
   }
@@ -90,7 +94,7 @@ export default class HomeScreen extends React.Component {
         <Item regular>
           <Icon name="ios-locate-outline" />
           <Input
-            placeholder="location"
+            placeholder="San Fransisco"
             placeholderTextColor="grey"
             onChangeText={debounce(this.handlechange, 500)}
             blurOnSubmit
@@ -110,15 +114,19 @@ export default class HomeScreen extends React.Component {
         </IconListContainer>
 
         <CardListContainer>
-          <Query query={openingsQuery}>
-            {({ data }) => (data.Opening || []).map(p => (
-              <Card
-                key={p.id}
-                title={p.title}
-                company={p.Company.name}
-                description={p.description}
-              />
-                  ))}
+          <Query query={openingsQuery} variables={{ ids: this.state.selectedCategories, name: `%${this.state.searchValue}%` }} >
+            {({ data }) => {
+              console.log('data response', data);
+           return ((data || {}).Opening || []).map(p => (
+             <Card
+               key={p.id}
+               title={p.title}
+               company={p.Company.name}
+               description={p.description}
+             />
+                  ));
+}
+                }
           </Query>
         </CardListContainer>
       </ScrollView>
