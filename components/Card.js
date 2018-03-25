@@ -1,52 +1,67 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardItem, Text, Body } from 'native-base';
+import { CardItem, Text, Body, Right } from 'native-base';
 
 const CardContainer = styled.TouchableOpacity`
-  border-width: 1;
-  border-radius: 2;
+  padding-left: 20;
+  padding-top: 20;
+  padding-right: 20;
+  padding-bottom: 20;
+  border-top-width: 0;
+  border-bottom-width: 1;
   border-color: #ccc;
+  background-color: white;
+  flex-direction: row;
 `;
+
 
 const TitleText = styled.Text`
-font-size:24;
-font-weight: bold;
+  font-size: 20;
+  font-weight: normal;
+  font-style: normal;
+  color: #838383;
 `;
 
-const JobText = styled.Text`
-font-size:18;
-font-weight: normal;
-`;
 const CompanyText = styled.Text`
-font-size:16;
-font-weight: normal;
+  margin-top: 2;
+  font-size:12;
+  font-weight: normal;
+  color: #979797;
 `;
 const DescriptionText = styled.Text`
-font-size:16;
-font-weight: normal;
+  font-size:12;
+  font-weight: normal;
+  margin-top: 8;
+  color: #979797;
+`;
+const LinkText = styled.Text`
+  font-size:15;
+  font-weight: normal;
+  margin-top: 10;
+  color: #4a90e2;
+`;
+const TextContainer = styled.View`
+  background-color: white;
+  padding-right: 20;  
+  flex:6;
+`;
+const LinkContainer = styled.View`
+  background-color: white;
+  justifyContent: center;
+  alignItems: center;
+  flex: 1;
 `;
 
 const OpportunityCard = props => (
   <CardContainer onPress={props.onPress}>
-    <CardItem header>
+    <TextContainer>
       <TitleText>{props.title}</TitleText>
-    </CardItem>
-    <CardItem>
-      <Body>
-        <JobText>
-          {`Job Name:${props.jobName}`}
-        </JobText>
-        <CompanyText>
-          {`Company Name:${props.company}`}
-        </CompanyText>
-        <DescriptionText>
-          {`Description:${props.description}`}
-        </DescriptionText>
-      </Body>
-    </CardItem>
-    <CardItem footer>
-      <Text>{props.footer}</Text>
-    </CardItem>
+      <CompanyText>{props.company}</CompanyText>
+      <DescriptionText>{props.description}</DescriptionText>
+    </TextContainer>
+    <LinkContainer>
+      <LinkText>View</LinkText>
+    </LinkContainer>
   </CardContainer>
 );
 
