@@ -1,7 +1,7 @@
 import React from 'react';
 // import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './HomeScreen';
-import SampleScreen from './components/SampleScreen';
+import SampleScreen from './components/CardSampleScreen';
 
 // const styles = StyleSheet.create({
 //   container: {
