@@ -4,11 +4,25 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { debounce } from 'lodash';
 import { ScrollView } from 'react-native';
-import { Text, Container, Header, Item, Input, Icon } from 'native-base';
+import { Item, Input, Icon } from 'native-base';
 import IconList from './components/IconList';
+import { Card } from './components';
 
 const IconListContainer = styled.View`
   height: 128;
+`;
+
+const CardListContainer = styled.View`
+  flex:1
+`;
+
+const IconContainer = styled.View`
+  flex:1;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40;
+  padding-bottom: 40;
 `;
 
 const categoryQuery = gql`
@@ -21,8 +35,25 @@ query fetch_Category{
 }
 `;
 
-const IconListContainer = styled.View`
-  height: 128;
+const openingsQuery = gql`
+query fetch_Opening{
+  Opening {
+    id
+    title
+    description
+    Company {
+      name
+    }
+    Category {
+      name
+    }
+  }
+}
+`;
+
+const HeaderImage = styled.Image`
+  width: 265;
+  height: 161;
 `;
 
 export default class HomeScreen extends React.Component {
@@ -53,20 +84,21 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Container>
-          <Header />
-          <Item regular>
-            <Icon name="ios-locate-outline" />
-            <Input
-              placeholder="location"
-              placeholderTextColor="grey"
-              onChangeText={debounce(this.handlechange, 500)}
-              blurOnSubmit
-            />
-          </Item>
-          <IconListContainer>
-            <Query query={categoryQuery}>
-              {({ data }) => {
+        <IconContainer>
+          <HeaderImage source={require('./icons/impact-words.png')} />
+        </IconContainer>
+        <Item regular>
+          <Icon name="ios-locate-outline" />
+          <Input
+            placeholder="location"
+            placeholderTextColor="grey"
+            onChangeText={debounce(this.handlechange, 500)}
+            blurOnSubmit
+          />
+        </Item>
+        <IconListContainer>
+          <Query query={categoryQuery}>
+            {({ data }) => {
                 const categories = (data.Category || []).map(c => ({
                     id: c.id,
                     selected: this.state.selectedCategories.includes(c.id),
@@ -74,10 +106,21 @@ export default class HomeScreen extends React.Component {
                   }));
                 return (<IconList icons={categories} onPress={this._onCategorySelected} />);
               } }
-            </Query>
-          </IconListContainer>
-          <Text>{this.state.searchValue}</Text>
-        </Container>
+          </Query>
+        </IconListContainer>
+
+        <CardListContainer>
+          <Query query={openingsQuery}>
+            {({ data }) => (data.Opening || []).map(p => (
+              <Card
+                key={p.id}
+                title={p.title}
+                company={p.Company.name}
+                description={p.description}
+              />
+                  ))}
+          </Query>
+        </CardListContainer>
       </ScrollView>
     );
   }
