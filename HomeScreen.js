@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { Text, Container, Header, Content, Item, Input, Icon, Button } from 'native-base';
 
 export default class HomeScreen extends React.Component {
@@ -6,6 +7,7 @@ export default class HomeScreen extends React.Component {
     super(props);
     this.state = {
       searchValue: '',
+      text1: 'Rando',
     };
   }
 
@@ -13,9 +15,8 @@ export default class HomeScreen extends React.Component {
     this.setState({ searchValue: text });
   }
 
-  handleSubmitEditing=(text) => {
-    console.log('submitted');
-    this.setState({ searchValue: text });
+  handleSubmitEditing=() => {
+    this.setState({ text1: this.state.searchValue });
   }
 
   render() {
@@ -24,16 +25,20 @@ export default class HomeScreen extends React.Component {
         <Header />
 
         <Item regular>
-          <Icon name="ios-search" />
+          <Icon name="ios-locate-outline" />
+
           <Input
+            placeholder="location"
+            placeholderTextColor="grey"
             value={this.state.searchValue}
             onChangeText={this.handlechange}
             onSubmitEditing={this.handleSubmitEditing}
-            placeholder="Search..."
+            blurOnSubmit
           />
+
         </Item>
 
-        <Text>col1</Text>
+        <Text>{this.state.text1}</Text>
 
         <Text>col2</Text>
 
