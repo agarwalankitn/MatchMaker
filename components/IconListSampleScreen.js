@@ -5,7 +5,7 @@ import IconList from './IconList';
 const Icons = [
   {
     id: 1,
-    path: require('../icons/test.jpg'),
+    path: require('../icons/test.jpg'), // eslint-disable-line global-require
     name: 'Community',
   },
 ];

@@ -1,32 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from 'react-native';
 
 const IconContainer = styled.ScrollView`
+  background-color:red;
 `;
 
-const CircularImage = styled.Image`
+const IconContainerInnerView = styled.View`
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`;
+
+const SmallImage = styled.Image`
   width: 64;
   height: 64;
-  border-radius: 32;
 `;
 
+const CircularView = styled.TouchableOpacity`
+  border-radius: 48;
+  padding-left: 16;
+  padding-right: 16;
+  padding-top: 16;
+  padding-bottom: 16;
+  background-color: blue;
+  height: 96;
+  width: 96;
+  margin-left: 5;
+  margin-right: 5;
+  margin-top: 5;
+  margin-bottom: 5;
+`;
+
+const IconListContainer = styled.View`
+  height: 128;
+`;
+
+
 const IconList = (props) => {
-  console.log('Iconlist render', props);
-  const icons = (props.icons || {}).map((icon) => {
-    console.log('rendering icon', icon);
-    return (
-      <CircularImage
+  const icons = (props.icons || {}).map(icon => (
+    <CircularView onPress={this.onPress}>
+      <SmallImage
         key={icon.id}
         source={icon.path}
       />
-    );
-  });
+    </CircularView>));
 
   return (
-    <IconContainer onPress={props.onPress}>
-      {icons}
+    <IconContainer
+      horizontal
+      onPress={props.onPress}
+    >
+      <IconContainerInnerView>
+        {icons}
+      </IconContainerInnerView>
     </IconContainer>);
 };
 
-export default IconList;
+export { IconList, IconListContainer };
