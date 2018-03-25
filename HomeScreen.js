@@ -9,17 +9,17 @@ const icons = [
     name: 'Animals',
   },
   {
-    id: 1,
+    id: 2,
     path: require('./icons/Science.png'), // eslint-disable-line global-require
     name: 'Science',
   },
   {
-    id: 1,
+    id: 3,
     path: require('./icons/Sports.png'), // eslint-disable-line global-require
     name: 'Sports',
   },
   {
-    id: 1,
+    id: 4,
     path: require('./icons/Community.png'), // eslint-disable-line global-require
     name: 'Community',
   },
