@@ -47,8 +47,8 @@ const TextContainer = styled.View`
 `;
 const LinkContainer = styled.View`
   background-color: white;
-  justifyContent: center;
-  alignItems: center;
+  justify-content: center;
+  align-items: center;
   flex: 1;
 `;
 
