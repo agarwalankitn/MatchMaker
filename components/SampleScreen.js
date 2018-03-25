@@ -4,7 +4,6 @@ import Card from './Card';
 
 const SampleScreen = () => (
   <Container>
-    <Header />
     <Content>
       <Card
         title="some title"

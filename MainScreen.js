@@ -17,8 +17,8 @@ const MainScreen = () => (
   //   <Text>Hello !!</Text>
   //   <Persons />
   // </View>
-  <HomeScreen />
-  // <SampleScreen />
+  // <HomeScreen />
+  <SampleScreen />
 );
 
 export default MainScreen;
