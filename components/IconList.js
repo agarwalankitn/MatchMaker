@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const IconContainer = styled.ScrollView`
-  background-color:red;
+  background-color:white;
 `;
 
 const IconContainerInnerView = styled.View`
@@ -12,8 +13,13 @@ const IconContainerInnerView = styled.View`
 `;
 
 const SmallImage = styled.Image`
-  width: 64;
-  height: 64;
+  width: 32;
+  height: 32;
+`;
+
+const CategoryText = styled.Text`
+  margin-top:5
+  color: ${({ selected }) => (!selected ? '#4a90e2' : 'white')};
 `;
 
 const CircularView = styled.TouchableOpacity`
@@ -22,22 +28,41 @@ const CircularView = styled.TouchableOpacity`
   padding-right: 16;
   padding-top: 16;
   padding-bottom: 16;
-  background-color: blue;
+  background-color: ${({ selected }) => (selected ? '#4a90e2' : 'white')};
+  border-color: #4a90e2;
+  border-width: 2;
   height: 96;
   width: 96;
   margin-left: 5;
   margin-right: 5;
   margin-top: 5;
   margin-bottom: 5;
+  justify-content: center;
+  align-items: center;
 `;
 
+const ActiveIconMap = {
+  Animals: require('../icons/animals-white.png'),
+  Community: require('../icons/community-white.png'),
+  Science: require('../icons/science-white.png'),
+  Sports: require('../icons/sports-white.png'),
+};
+
+const IconMap = {
+  Animals: require('../icons/animals-blue.png'),
+  Community: require('../icons/community-blue.png'),
+  Science: require('../icons/science-blue.png'),
+  Sports: require('../icons/sports-blue.png'),
+};
+
 const IconList = (props) => {
-  const icons = (props.icons || {}).map(icon => (
-    <CircularView onPress={() => props.onPress(icon.id)} key={icon.id}>
+  const icons = (props.icons || []).map(icon => (
+    <CircularView selected={icon.selected} onPress={() => props.onPress(icon.id)} key={icon.id}>
       <SmallImage
         key={icon.id}
-        source={icon.path}
+        source={icon.selected ? ActiveIconMap[icon.name] : IconMap[icon.name]}
       />
+      <CategoryText selected={icon.selected} >{icon.name}</CategoryText>
     </CircularView>));
 
   return (
