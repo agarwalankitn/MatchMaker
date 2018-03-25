@@ -7,7 +7,7 @@
     "atomKeymap.promptV3Features": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 5000,
+    "files.autoSaveDelay": 500,
     "javascript.format.enable": false,
     "typescript.format.enable": false,
     "editor.formatOnPaste": false,

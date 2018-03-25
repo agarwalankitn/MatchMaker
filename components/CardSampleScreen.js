@@ -6,18 +6,14 @@ const SampleScreen = () => (
   <Container>
     <Content>
       <Card
-        title="some title"
-        header="my card"
-        jobName="some job name"
-        company="some company"
-        description="description"
+        title="Teach physics to children"
+        company="SCIENCE FOR KIDS"
+        description="We need people to teach basic physics to twele year old kids"
       />
       <Card
-        title="some title"
-        header="my card"
-        jobName="some job name"
-        company="some company"
-        description="description"
+        title="Help in laboratory"
+        company="SOUTH SCHOOL FOUNDATION"
+        description="We are looking for people to help student with simple science projects"
       />
     </Content>
   </Container>
