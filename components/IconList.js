@@ -31,14 +31,9 @@ const CircularView = styled.TouchableOpacity`
   margin-bottom: 5;
 `;
 
-const IconListContainer = styled.View`
-  height: 128;
-`;
-
-
 const IconList = (props) => {
   const icons = (props.icons || {}).map(icon => (
-    <CircularView onPress={this.onPress}>
+    <CircularView onPress={() => props.onPress(icon.id)} key={icon.id}>
       <SmallImage
         key={icon.id}
         source={icon.path}
@@ -56,4 +51,4 @@ const IconList = (props) => {
     </IconContainer>);
 };
 
-export { IconList, IconListContainer };
+export default IconList;
