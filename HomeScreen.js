@@ -21,6 +21,10 @@ query fetch_Category{
 }
 `;
 
+const IconListContainer = styled.View`
+  height: 128;
+`;
+
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
