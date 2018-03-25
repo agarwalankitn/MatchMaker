@@ -2,6 +2,8 @@ import React from 'react';
 // import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './HomeScreen';
 import SampleScreen from './components/CardSampleScreen';
+import Openings from './modules/opening'
+import Persons from './modules/person'
 
 // const styles = StyleSheet.create({
 //   container: {
@@ -18,7 +20,8 @@ const MainScreen = () => (
   //   <Persons />
   // </View>
   <HomeScreen />
-  // <SampleScreen />
+  //<SampleScreen />
+  // <Openings />
 );
 
 export default MainScreen;

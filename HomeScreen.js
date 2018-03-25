@@ -5,6 +5,28 @@ import { ScrollView } from 'react-native';
 import { Text, Container, Header, Item, Input, Icon } from 'native-base';
 import IconList from './components/IconList';
 
+import Card from './components/Card';
+
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const query = gql`
+query fetch_Opening{
+  Opening {
+    id
+    title
+    description
+    Company {
+      name
+    }
+    Category {
+      name
+    }
+  }
+}
+`;
+
+
 const icons = [
   {
     id: 1,
@@ -63,6 +85,21 @@ export default class HomeScreen extends React.Component {
           </IconListContainer>
           <Text>{this.state.searchValue}</Text>
         </Container>
+        <Query query={query}>
+          {({ loading, error, data }) => {
+          if (loading) return <Text>Loading...</Text>;
+          if (error) return <Text>Error :</Text>;
+          return data.Opening.map(p => (
+            <Card
+              key={p.id}
+              itle={p.title}
+              company={p.Company.name}
+              description={p.description}
+            />
+          ));
+          }}
+        </Query>
+
       </ScrollView>
     );
   }
